@@ -1,0 +1,16 @@
+{
+  "name": "smart-edu",
+  "version": "1.0.0",
+  "description": "Smart Education System — Full-Stack MERN Application",
+  "private": true,
+  "scripts": {
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "seed": "cd server && npm run seed",
+    "build:client": "cd client && npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

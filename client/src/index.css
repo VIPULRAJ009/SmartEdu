@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 222 47% 18%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 222 47% 18%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 95%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 95%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 95%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 222 47% 16%;
+    --secondary-foreground: 210 40% 95%;
+    --muted: 222 47% 14%;
+    --muted-foreground: 220 9% 55%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 8%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 47% 18%;
+    --input: 222 47% 18%;
+    --ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  h1, h2, h3 { @apply font-serif; }
+}
+
+@layer components {
+  /* Sidebar */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-muted-foreground
+           hover:text-foreground hover:bg-muted transition-all duration-150 cursor-pointer;
+  }
+  .sidebar-link.active {
+    @apply bg-primary/10 text-primary font-semibold;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply bg-card border border-border rounded-xl p-5 hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Page header */
+  .page-header {
+    @apply mb-6 pb-5 border-b border-border;
+  }
+  .page-title {
+    @apply text-2xl font-serif font-normal text-foreground tracking-tight;
+  }
+  .page-subtitle {
+    @apply mt-1 text-sm text-muted-foreground;
+  }
+
+  /* Data table */
+  .data-table { @apply w-full text-sm; }
+  .data-table thead tr { @apply border-b border-border; }
+  .data-table thead th {
+    @apply py-3 px-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground;
+  }
+  .data-table tbody tr {
+    @apply border-b border-border/50 hover:bg-muted/40 transition-colors;
+  }
+  .data-table tbody td { @apply py-3.5 px-4 text-sm text-foreground; }
+
+  /* Badge pill */
+  .badge-pill {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/40; }
